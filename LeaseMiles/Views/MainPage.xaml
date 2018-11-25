@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+		xmlns="http://xamarin.com/schemas/2014/forms" 
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+		x:Class="LeaseMiles.MainPage"
+        BackgroundColor="{StaticResource PageBackgroundColor}"
+		Title="Lease Mileage Checker">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="DefaultTextColor">Black</Color>
+            <Color x:Key="PageBackgroundColor">#F2F2F2</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+	<ContentPage.Content>
+		<StackLayout Orientation="Vertical" Padding="20,30,20,0">
+			<StackLayout Orientation="Vertical">
+				<Label Text="Contract Miles Per Year" FontAttributes="Bold" TextColor="{StaticResource DefaultTextColor}" />
+				<Entry Text="{Binding MilesPerYear}" Keyboard="Numeric" TextColor="{StaticResource DefaultTextColor}" />
+			</StackLayout>
+			<StackLayout Orientation="Vertical">
+				<Label Text="Contract Start Date" FontAttributes="Bold" TextColor="{StaticResource DefaultTextColor}" />
+				<DatePicker Date="{Binding CarBuyDate}" MaximumDate="{Binding MaxDatePickerDate}" TextColor="{StaticResource DefaultTextColor}" />
+			</StackLayout>
+            
+            <StackLayout VerticalOptions="FillAndExpand" Margin="-20,0,-20,0" Padding="20,0,20,0">
+                <Grid Margin="0, 15, 0, 0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    
+                    <Frame BackgroundColor="Transparent" HeightRequest="40" WidthRequest="40" Grid.Column="0"
+                        BorderColor="#F0B144" CornerRadius="40" HasShadow="false" HorizontalOptions="Center" VerticalOptions="Center" />
+                    <Label FontAttributes="Bold" TextColor="{StaticResource DefaultTextColor}" Text="{Binding DaysSinceContractStart}" VerticalOptions="Center" HorizontalTextAlignment="Center" Grid.Column="0" />
+                    
+                    <Frame BackgroundColor="Transparent" HeightRequest="40" WidthRequest="40" Grid.Column="1"
+                        BorderColor="#F0B144" CornerRadius="40" HasShadow="false" HorizontalOptions="Center" VerticalOptions="Center" />
+                    <Label FontAttributes="Bold" TextColor="{StaticResource DefaultTextColor}" Text="{Binding AverageMilesPerDay}" VerticalOptions="Center" HorizontalTextAlignment="Center" Grid.Column="1" />
+                    
+                    <Frame BackgroundColor="Transparent" HeightRequest="40" WidthRequest="40" Grid.Column="2"
+                        BorderColor="#F0B144" CornerRadius="40" HasShadow="false" HorizontalOptions="Center" VerticalOptions="Center" />
+                    <Label FontAttributes="Bold" TextColor="{StaticResource DefaultTextColor}" Text="{Binding TotalMilesAllowed}" VerticalOptions="Center" HorizontalTextAlignment="Center" Grid.Column="2" />
+                    
+                </Grid>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Text="days since contract start" HorizontalTextAlignment="Center" Grid.Column="0" Margin="5, 5, 5, 0" TextColor="{StaticResource DefaultTextColor}" FontSize="13"/>
+                    <Label Text="average miles per day" HorizontalTextAlignment="Center" Grid.Column="1" Margin="5, 5, 5, 0" TextColor="{StaticResource DefaultTextColor}" FontSize="13" />
+                    <Label Text="miles expected so far for contract" HorizontalTextAlignment="Center" Grid.Column="2" Margin="5, 5, 5, 0" TextColor="{StaticResource DefaultTextColor}" FontSize="13" />
+                </Grid>
+            </StackLayout>
+			
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>
